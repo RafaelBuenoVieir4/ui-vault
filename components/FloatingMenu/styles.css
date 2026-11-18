@@ -1,0 +1,965 @@
+/* =====================================
+   FLOATING MENU BUTTON
+===================================== */
+
+.floatingMenu__button {
+  position:
+    fixed;
+
+  right:
+    22px;
+
+  top:
+    50%;
+
+  transform:
+    translateY(
+      -50%
+    );
+
+  z-index:
+    var(--z-menu-toggle);
+
+  padding:
+    8px;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #fff;
+
+  mix-blend-mode:
+    difference;
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.02em;
+
+  text-transform:
+    uppercase;
+
+  cursor:
+    pointer;
+}
+
+
+/* =====================================
+   BUTTON FOCUS
+===================================== */
+
+.floatingMenu__button:focus-visible {
+  outline:
+    2px solid
+    var(--color-accent);
+
+  outline-offset:
+    4px;
+}
+
+
+/* =====================================
+   BUTTON WORD
+===================================== */
+
+.floatingMenu__buttonWord {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.08em;
+}
+
+
+/* =====================================
+   LETTER MASK
+===================================== */
+
+.floatingMenu__letter {
+  display:
+    block;
+
+  height:
+    0.7rem;
+
+  overflow:
+    hidden;
+}
+
+
+/* =====================================
+   LETTER TRACK
+===================================== */
+
+.floatingMenu__letterTrack {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.floatingMenu__letterTrack
+> span {
+  display:
+    block;
+
+  flex:
+    none;
+
+  height:
+    0.7rem;
+
+  line-height:
+    0.7rem;
+}
+
+
+/* =====================================
+   OPEN BUTTON
+===================================== */
+
+.floatingMenu__button.is-open {
+  color:
+    var(--color-text-light);
+
+  mix-blend-mode:
+    normal;
+}
+
+
+/* =====================================
+   OVERLAY
+===================================== */
+
+.floatingMenu__overlay {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    var(--z-menu-overlay);
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.54
+    );
+
+  backdrop-filter:
+    blur(
+      5px
+    );
+
+  overscroll-behavior:
+    contain;
+}
+
+
+/* =====================================
+   PANEL
+===================================== */
+
+.floatingMenu__panel {
+  position:
+    absolute;
+
+  top:
+    0;
+
+  right:
+    0;
+
+  width:
+    min(
+      570px,
+      100%
+    );
+
+  height:
+    100%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  padding:
+    31px
+    40px
+    34px;
+
+  box-sizing:
+    border-box;
+
+  overflow-y:
+    auto;
+
+  overscroll-behavior:
+    contain;
+
+  background:
+    var(--color-bg-dark);
+
+  color:
+    var(--color-text-light);
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.floatingMenu__header {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    30px;
+
+  padding-bottom:
+    20px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      243,
+      240,
+      233,
+      0.14
+    );
+}
+
+
+.floatingMenu__logo {
+  font-size:
+    0.67rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+.floatingMenu__headerMeta {
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.45rem;
+
+  letter-spacing:
+    0.1em;
+
+  color:
+    rgba(
+      243,
+      240,
+      233,
+      0.38
+    );
+}
+
+
+/* =====================================
+   NAV
+===================================== */
+
+.floatingMenu__nav {
+  margin:
+    auto
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+    padding-right: 85px;
+}
+
+
+/* =====================================
+   LINK
+===================================== */
+
+.floatingMenu__link {
+  position:
+    relative;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    45px
+    minmax(
+      0,
+      1fr
+    )
+    24px;
+
+  gap:
+    7px;
+
+  align-items:
+    center;
+
+  padding:
+    7px
+    0;
+
+  color:
+    inherit;
+
+  text-decoration:
+    none;
+}
+
+
+/* =====================================
+   LINK NUMBER
+===================================== */
+
+.floatingMenu__linkNumber {
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.5rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    var(--color-accent);
+
+  transition:
+    opacity
+      250ms ease;
+}
+
+
+/* =====================================
+   LINK TITLE
+===================================== */
+
+.floatingMenu__link
+strong {
+  margin:
+    0;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      2.75rem,
+      4vw,
+      4.4rem
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    0.92;
+
+  letter-spacing:
+    -0.045em;
+
+  transition:
+    opacity
+      250ms ease,
+    transform
+      500ms
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+/* =====================================
+   ACTIVE SECTION
+===================================== */
+
+.floatingMenu__link::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  right:
+    7px;
+
+  top:
+    50%;
+
+  width:
+    5px;
+
+  height:
+    5px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--color-accent);
+
+  opacity:
+    0;
+
+  transform:
+    translateY(
+      -50%
+    )
+    scale(
+      0.5
+    );
+
+  transition:
+    opacity
+      250ms ease,
+    transform
+      450ms
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+.floatingMenu__link.is-active::after {
+  opacity:
+    1;
+
+  transform:
+    translateY(
+      -50%
+    )
+    scale(
+      1
+    );
+}
+
+
+.floatingMenu__link.is-active
+strong {
+  transform:
+    translateX(
+      6px
+    );
+}
+
+
+/* =====================================
+   LINK ARROW
+===================================== */
+
+.floatingMenu__linkArrow {
+  justify-self:
+    end;
+
+  color:
+    var(--color-accent);
+
+  font-size:
+    0.8rem;
+
+  opacity:
+    0;
+
+  transform:
+    translate(
+      -5px,
+      -5px
+    );
+
+  transition:
+    opacity
+      300ms ease,
+    transform
+      450ms
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+/* =====================================
+   LINK KEYBOARD FOCUS
+===================================== */
+
+.floatingMenu__link:focus-visible {
+  outline:
+    none;
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    1px
+    var(--color-accent);
+
+  background:
+    rgba(
+      223,
+      76,
+      47,
+      0.04
+    );
+}
+
+
+/* =====================================
+   NAV HOVER / FOCUS
+===================================== */
+
+@media (
+  hover: hover
+) {
+
+  .floatingMenu__nav:hover
+  .floatingMenu__link:not(
+    :hover
+  )
+  strong {
+    opacity:
+      0.22;
+  }
+
+
+  .floatingMenu__link:hover
+  strong {
+    transform:
+      translateX(
+        10px
+      );
+  }
+
+
+  .floatingMenu__link:hover
+  .floatingMenu__linkArrow {
+    opacity:
+      1;
+
+    transform:
+      translate(
+        0,
+        0
+      );
+  }
+
+
+  /*
+    Quando há hover no link ativo,
+    a bolinha dá lugar à seta.
+  */
+
+  .floatingMenu__link.is-active:hover::after {
+    opacity:
+      0;
+  }
+
+}
+
+
+/*
+  O mesmo feedback para teclado.
+*/
+
+.floatingMenu__link:focus-visible
+.floatingMenu__linkArrow {
+  opacity:
+    1;
+
+  transform:
+    translate(
+      0,
+      0
+    );
+}
+
+
+.floatingMenu__link.is-active:focus-visible::after {
+  opacity:
+    0;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.floatingMenu__footer {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    minmax(
+      245px,
+      0.9fr
+    );
+
+  gap:
+    35px;
+
+  align-items:
+    end;
+
+  padding-top:
+    20px;
+
+  border-top:
+    1px solid
+    rgba(
+      243,
+      240,
+      233,
+      0.14
+    );
+}
+
+
+/* =====================================
+   FOOTER META
+===================================== */
+
+.floatingMenu__footerMeta {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    6px;
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.43rem;
+
+  letter-spacing:
+    0.09em;
+
+  color:
+    rgba(
+      243,
+      240,
+      233,
+      0.34
+    );
+}
+
+
+.floatingMenu__footerMeta
+span:last-child {
+  color:
+    var(--color-accent);
+}
+
+
+/* =====================================
+   CTA
+===================================== */
+
+.floatingMenu__cta {
+  width:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    25px;
+
+  padding:
+    15px
+    0;
+
+  border:
+    0;
+
+  border-top:
+    1px solid
+    var(--color-accent);
+
+  border-bottom:
+    1px solid
+    var(--color-accent);
+
+  background:
+    transparent;
+
+  color:
+    var(--color-text-light);
+
+  cursor:
+    pointer;
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.5rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.075em;
+
+  text-align:
+    left;
+
+  transition:
+    padding
+      450ms
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+    background-color
+      350ms ease;
+}
+
+
+/* =====================================
+   CTA ARROW
+===================================== */
+
+.floatingMenu__cta
+strong {
+  color:
+    var(--color-accent);
+
+  font-family:
+    var(--font-body);
+
+  font-size:
+    1rem;
+
+  font-weight:
+    400;
+
+  transition:
+    transform
+      350ms ease;
+}
+
+
+/* =====================================
+   CTA FOCUS
+===================================== */
+
+.floatingMenu__cta:focus-visible {
+  outline:
+    2px solid
+    var(--color-accent);
+
+  outline-offset:
+    4px;
+}
+
+
+/* =====================================
+   CTA HOVER
+===================================== */
+
+@media (
+  hover: hover
+) {
+
+  .floatingMenu__cta:hover {
+    padding-left:
+      14px;
+
+    padding-right:
+      14px;
+
+    background:
+      rgba(
+        223,
+        76,
+        47,
+        0.06
+      );
+  }
+
+
+  .floatingMenu__cta:hover
+  strong {
+    transform:
+      translate(
+        4px,
+        -4px
+      );
+  }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (
+  max-width: 600px
+) {
+
+  .floatingMenu__button {
+    right:
+      10px;
+  }
+
+
+  .floatingMenu__panel {
+    width:
+      100%;
+
+    padding:
+      24px
+      24px
+      28px;
+  }
+
+
+  .floatingMenu__link {
+    grid-template-columns:
+      32px
+      minmax(
+        0,
+        1fr
+      )
+      20px;
+
+    padding:
+      7px
+      0;
+  }
+
+
+  .floatingMenu__link
+  strong {
+    font-size:
+      clamp(
+        2.6rem,
+        12vw,
+        4.2rem
+      );
+  }
+
+
+  .floatingMenu__link::after {
+    right:
+      5px;
+
+    width:
+      4px;
+
+    height:
+      4px;
+  }
+
+
+  .floatingMenu__footer {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      18px;
+  }
+
+
+  .floatingMenu__footerMeta {
+    display:
+      none;
+  }
+
+}
+
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .floatingMenu__link
+  strong,
+
+  .floatingMenu__linkNumber,
+
+  .floatingMenu__linkArrow,
+
+  .floatingMenu__link::after,
+
+  .floatingMenu__cta,
+
+  .floatingMenu__cta
+  strong {
+    transition:
+      none;
+  }
+
+}
